@@ -1,4 +1,5 @@
 import React from "react";
+import c from "./ButtonSimple.module.css"
 
 
 function ButtonSimple() {

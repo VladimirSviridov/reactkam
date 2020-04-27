@@ -1,10 +1,11 @@
 import React from "react";
 import Profile from "./Pages/Profile";
+import c from "./Main.module.css"
 
 
 function Main() {
     return (
-        <main className="app-main">
+        <main className={c.main}>
             <Profile/>
         </main>
     );

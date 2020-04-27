@@ -4,13 +4,14 @@ import UserPhoto from "../Profile/UserPhoto";
 import UserInfo from "../Profile/UserInfo";
 import PostWrite from "../Posts/PostWrite";
 import PostItem from "../Posts/PostItem";
+import c from "./Profile.module.css"
 
 
 function Profile() {
     return (
         <section>
             <HeadPhoto/>
-            <div className="user">
+            <div className={c.user}>
                 <UserPhoto/>
                 <UserInfo/>
             </div>

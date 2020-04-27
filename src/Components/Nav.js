@@ -1,14 +1,14 @@
 import React from "react";
-
+import c from './Nav.module.css';
 
 function Nav() {
     return (
-        <nav className="app-nav">
-            <div><a className="app-nav__link" href="#">Profile</a></div>
-            <div><a className="app-nav__link" href="#">Message</a></div>
-            <div><a className="app-nav__link" href="#">Music</a></div>
-            <div><a className="app-nav__link" href="#">News</a></div>
-            <div><a className="app-nav__link" href="#">Settings</a></div>
+        <nav className={c.nav}>
+            <div><a className={c.navLink} href="#">Profile</a></div>
+            <div><a className={c.navLink} href="#">Message</a></div>
+            <div><a className={c.navLink} href="#">Music</a></div>
+            <div><a className={c.navLink} href="#">News</a></div>
+            <div><a className={c.navLink} href="#">Settings</a></div>
         </nav>
     );
 }

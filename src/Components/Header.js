@@ -1,12 +1,13 @@
 import React from "react";
+import c from "./Header.module.css"
 
 
 function Header() {
     return (
-        <header className="app-header">
-            <img className="App-logo"
-                src="https://lh3.googleusercontent.com/proxy/1liQZp9XrvlqEmiAwdx5SfB9bfVqou5wOinoy_bFk2M1T7y4w7m7rDZ2YvLIXMt94SynHwspis7qQKM5cHPNxwD4385vPGvkGfbPU8T9O_1DGZFboEK7Hg"
-                alt="logo"/>
+        <header className={c.header}>
+            <img className={c.logo}
+                 src="https://c7.hotpng.com/preview/668/861/313/korean-art-traditional-korean-designs-pattern-islamic-pattern.jpg"
+                 alt="logo"/>
         </header>
     );
 }
