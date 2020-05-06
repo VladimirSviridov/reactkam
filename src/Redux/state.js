@@ -1,3 +1,7 @@
+let renderEntireTree = () => {
+    console.log('smth is changed')
+};
+
 let state = {
     ProfilePage: {
         PostsData: [
@@ -5,6 +9,7 @@ let state = {
             {id: "2", img:'/img/iconfinder-7-avatar-2754582_120519.png' ,likesCount: "56", message: "I learning JS React"},
             {id: "3", img:'/img/iconfinder-7-avatar-2754582_120519.png' ,likesCount: "13", message: "And I know how to use props"}
         ],
+        NewPostText: 'smth',
     },
     MessagesPage: {
         UsersToDialog: [
@@ -20,6 +25,7 @@ let state = {
             {id: "3", message: "How do you feel it?"},
             {id: "4", message: "Do you have smth to say?"}
         ],
+        NewMessage: 'smth',
     },
     sidebar: {
         FriendsData: [
@@ -28,18 +34,43 @@ let state = {
             {id: "3", name: "Ilya", img: '/img/FriendsData/id3.png'},
         ]
     },
+
 };
 
-export let addPost = (postMessage) =>{
+export const addMessage = () =>{
+    let newMessage = {
+        id: state.MessagesPage.MessagesData.length+2,
+        message: state.MessagesPage.NewMessage,
+    };
+    state.MessagesPage.MessagesData.push(newMessage);
+    state.MessagesPage.NewMessage = '';
+    renderEntireTree(state);
+};
+
+export const updateNewMessage = (newText) => {
+    state.MessagesPage.NewMessage = newText;
+    renderEntireTree(state);
+};
+
+export const addPost = () =>{
     let newPost = {
         id: state.ProfilePage.PostsData.length+2,
         img:'/img/iconfinder-7-avatar-2754582_120519.png',
         likesCount: "0",
-        message: postMessage,
+        message: state.ProfilePage.NewPostText,
     };
-
-
     state.ProfilePage.PostsData.push(newPost);
+    state.ProfilePage.NewPostText = '';
+    renderEntireTree(state);
+};
+
+export const updateNewPostText = (newText) => {
+    state.ProfilePage.NewPostText = newText;
+    renderEntireTree(state);
+};
+
+export let subscribe = (observer) =>{
+  renderEntireTree = observer;
 };
 
 export default state;

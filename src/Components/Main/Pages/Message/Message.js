@@ -2,8 +2,7 @@ import React from "react";
 import DialogItem from "./Dialogs/DialogItem";
 import MessageItem from "./Dialogs/MessageItem";
 import c from "./Message.module.css"
-import PostWrite from "../Profile/Posts/PostWrite";
-import ButtonSimple from "../../../Items/ButtonSimple";
+import MessageWrite from "./MessageWrite/MessageWrite";
 
 
 
@@ -15,13 +14,14 @@ const Message = (props) => {
 
     return (
         <div className={c.messages}>
-
             <div className={c.dialogs}>
                 {Dialogs}
             </div>
             <div className={c.message}>
                 {MessagesElements}
-                <PostWrite/>
+                <MessageWrite NewMessage={props.state.NewMessage}
+                              addMessage={props.addMessage}
+                              updateNewMessage={props.updateNewMessage}/>
             </div>
         </div>
     )

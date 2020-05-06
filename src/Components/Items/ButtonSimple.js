@@ -5,16 +5,22 @@ import c from "./ButtonSimple.module.css"
 
 function ButtonSimple(props) {
 
+    let ChangeInput = () =>{
+        let text = newPost.current.value;
+        props.updateNewPostText(text);
+    };
+
     let newPost = React.createRef();
 
     let addPost = () => {
-        debugger;
-        props.addPost(newPost.current.value)};
+        props.addPost();
+    };
 
-    return (
+
+        return (
         <div>
-            <input ref={newPost} type="text"/>
-            <button onClick={addPost} className="btn-simple" type="submit">
+            <input onChange={ChangeInput} ref={newPost} type="text" value={props.newPostText}/>
+            <button onClick={addPost} className="btn-simple" type="button">
                 Отправить
             </button>
         </div>

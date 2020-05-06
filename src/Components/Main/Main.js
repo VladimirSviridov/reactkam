@@ -12,8 +12,12 @@ function Main(props) {
 
     return (
         <main className={c.main}>
-            <Route path={'/profile'} render={() => <Profile addPost={props.addPost} state={props.PostsData} />}/>
-            <Route path={'/dialog'} render={() => <Message state={props.MessagesData} />}/>
+            <Route path={'/profile'} render={() => <Profile updateNewPostText={props.updateNewPostText}
+                                                            addPost={props.addPost}
+                                                            state={props.PostsData} />}/>
+            <Route path={'/dialog'} render={() => <Message state={props.MessagesData}
+                                                           addMessage={props.addMessage}
+                                                           updateNewMessage={props.updateNewMessage}/>}/>
             <Route component={Music} path={'/music'}/>
             <Route component={News} path={'/news'}/>
             <Route component={Settings} path={'/settings'}/>

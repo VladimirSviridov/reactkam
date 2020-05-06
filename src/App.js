@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './App.css';
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
@@ -13,8 +12,12 @@ function App(props) {
                 <Header/>
                 <Nav state={props.state.sidebar}/>
                 <Main PostsData={props.state.ProfilePage}
+                      updateNewPostText={props.updateNewPostText}
                       addPost={props.addPost}
-                      MessagesData={props.state.MessagesPage}/>
+                      MessagesData={props.state.MessagesPage}
+                      updateNewMessage={props.updateNewMessage}
+                      addMessage={props.addMessage}
+                />
             </div>
     );
 }

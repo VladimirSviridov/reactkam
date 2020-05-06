@@ -19,7 +19,9 @@ function Profile(props) {
                 <UserInfo/>
             </div>
             <section className="posts">
-                <PostWrite addPost={props.addPost}/>
+                <PostWrite newPostText={props.state.NewPostText}
+                           updateNewPostText={props.updateNewPostText}
+                           addPost={props.addPost}/>
                 {PostItemArray}
             </section>
         </section>

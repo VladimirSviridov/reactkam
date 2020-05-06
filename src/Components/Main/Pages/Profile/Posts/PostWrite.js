@@ -7,9 +7,10 @@ function PostWrite(props) {
 
     return (
         <div>
-            <textarea className={c.postWrite} name="" id="" cols="30" rows="10">
-            </textarea>
-            <ButtonSimple addPost={props.addPost}/>
+            <textarea className={c.postWrite} name="" id="" cols="30" rows="10" />
+            <ButtonSimple newPostText={props.newPostText}
+                          updateNewPostText={props.updateNewPostText}
+                          addPost={props.addPost}/>
         </div>
     );
 }
