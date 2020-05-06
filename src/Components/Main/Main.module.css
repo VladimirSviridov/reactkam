@@ -1,0 +1,9 @@
+.main{
+    grid-area: m;
+    background-color: azure;
+}
+
+.app-main__head {
+    width: 100%;
+    height: 100px;
+}
