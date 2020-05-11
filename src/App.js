@@ -4,7 +4,6 @@ import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import Main from "./Components/Main/Main";
 
-//Можно ещё так: const App = () => {
 function App(props) {
 
     return (

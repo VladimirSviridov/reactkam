@@ -1,17 +1,22 @@
 import React from "react";
 import ButtonMessage from "./ButtonMessage";
-import {addMessageActionCreator} from "../../../Redux/messagesReducer";
+import {addMessageActionCreator, updateNewMessageActionCreator} from "../../../Redux/messagesReducer";
+import {connect} from "react-redux";
+import PostWrite from "../../Main/Pages/Profile/Posts/PostWrite";
 
 
-function ButtonMessageContainer(props) {
 
-    let addMessage = () => {
-        props.store.dispatch(addMessageActionCreator());
-    };
+let mapStoreToProps = (state) => {
+    return {
+    }
+};
 
-        return (
-        <ButtonMessage addMessage={addMessage}/>
-    );
-}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addMessage: () => {dispatch(addMessageActionCreator())}
+    }
+};
+
+const ButtonMessageContainer = connect(mapStoreToProps, mapDispatchToProps)(ButtonMessage);
 
 export default ButtonMessageContainer;

@@ -1,24 +1,25 @@
 import React from "react";
 import {addMessageActionCreator, updateNewMessageActionCreator} from "../../../../../Redux/messagesReducer";
 import MessageWrite from "./MessageWrite";
+import {updateNewTextActionCreator} from "../../../../../Redux/profileReducer";
+import {connect} from "react-redux";
+import PostWrite from "../../Profile/Posts/PostWrite";
 
 
-function MessageWriteContainer(props) {
-    
-    let state = props.store.getState();
+let mapStoreToProps = (state) => {
+    return {
+        NewMessage: state.messagesPage.NewMessage
+    }
+};
 
-    let ChangeInput = (text) =>{
-        let action = updateNewMessageActionCreator(text);
-        props.store.dispatch(action);
-    };
-    let AddMessage = () => {
-        let action = addMessageActionCreator();
-        props.store.dispatch(action);
-    };
+let mapDispatchToProps = (dispatch) => {
+    return {
+        changeInput: (text) => {dispatch(updateNewMessageActionCreator(text))},
+        addMessage: () => {dispatch(addMessageActionCreator())}
+    }
+};
 
-    return (
-        <MessageWrite NewMessage={state.messagesPage.NewMessage} changeInput={ChangeInput} addMessage={AddMessage}/>
-    );
-}
+const MessageWriteContainer = connect(mapStoreToProps, mapDispatchToProps)(MessageWrite);
+
 
 export default MessageWriteContainer;

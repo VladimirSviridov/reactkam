@@ -1,5 +1,3 @@
-import sidebarReducer, {shuffleCreator} from "./sidebarReducer";
-
 const updateNewText = 'UPDATE-NEW-TEXT';
 const addPost = "ADD-POST";
 
@@ -36,12 +34,16 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: "0",
                 message: state.NewPostText,
             };
-            state.PostsData.push(newPost);
-            state.NewPostText = '';
-            return state;
+            return {
+                ...state,
+                NewPostText: '',
+                PostsData: [...state.PostsData, newPost],
+            };
         case updateNewText:
-            state.NewPostText = action.newText;
-            return state;
+            return {
+                ...state,
+                NewPostText: action.newText,
+            };
         default:
             return state;
     }

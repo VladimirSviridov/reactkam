@@ -13,7 +13,7 @@ const sidebarReducer = (state = initialState, action) => {
     //Создаем случайную сортировку "Друзей". Методика с сайта https://habr.com/ru/post/358094/
     //вспомогательная функция
     function putToCache(elem, cache) {
-        if (cache.indexOf(elem) != -1) {
+        if (cache.indexOf(elem) !== -1) {
             return;
         }
         let i = Math.floor(Math.random() * (cache.length + 1));

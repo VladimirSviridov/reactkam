@@ -1,17 +1,22 @@
 import React from "react";
 import {addPostActionCreator} from "../../../Redux/profileReducer";
 import ButtonSimple from "./ButtonSimple";
+import {connect} from "react-redux";
 
 
-function ButtonSimpleContainer(props) {
+let mapStoreToProps = (state) => {
+    return {}
+};
 
-    let AddPost = () => {
-        props.store.dispatch(addPostActionCreator());
-    };
+let mapDispatchToProps = (dispatch) => {
+    return {
+        AddPost: () => {
+            dispatch(addPostActionCreator())
+        }
+    }
+};
 
-        return (
-        <ButtonSimple AddPost={AddPost}/>
-    );
-}
+const ButtonSimpleContainer = connect(mapStoreToProps, mapDispatchToProps)(ButtonSimple);
+
 
 export default ButtonSimpleContainer;

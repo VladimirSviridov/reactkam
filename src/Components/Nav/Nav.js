@@ -2,13 +2,11 @@ import React from "react";
 import c from './Nav.module.css';
 import {NavLink} from "react-router-dom";
 import FriendItem from "./Friends/FriendItem";
+import MyFriends from "./Friends/MyFriends/MyFriends";
 
 
 function Nav(props) {
 
-    let state = props.store.getState();
-
-    let FriendsArray = state.sidebar.FriendsData.map (friend => <FriendItem img={friend.img} name={friend.name} id={friend.id}/>);
     return (
         <nav className={c.nav}>
             <div>
@@ -30,7 +28,7 @@ function Nav(props) {
             </div> <br/><br/>
             <div>
                 FRIENDS
-                {FriendsArray}
+                <MyFriends store={props.store}/>
             </div>
 
         </nav>
