@@ -8,17 +8,11 @@ import Main from "./Components/Main/Main";
 function App(props) {
 
     return (
-            <div className="app-wrapper">
-                <Header/>
-                <Nav state={props.state.sidebar}/>
-                <Main PostsData={props.state.ProfilePage}
-                      updateNewPostText={props.updateNewPostText}
-                      addPost={props.addPost}
-                      MessagesData={props.state.MessagesPage}
-                      updateNewMessage={props.updateNewMessage}
-                      addMessage={props.addMessage}
-                />
-            </div>
+        <div className="app-wrapper">
+            <Header/>
+            <Nav store={props.store}/>
+            <Main store={props.store}/>
+        </div>
     );
 }
 

@@ -1,16 +1,18 @@
 import React from "react";
-import ButtonSimple from "../../../../Items/ButtonSimple";
 import c from "./PostWrite.module.css"
 
 
 function PostWrite(props) {
 
+    let ChangeInput = (event) => {
+        let text = event.target.value;
+        props.updatePostText(text);
+    };
+
     return (
         <div>
-            <textarea className={c.postWrite} name="" id="" cols="30" rows="10" />
-            <ButtonSimple newPostText={props.newPostText}
-                          updateNewPostText={props.updateNewPostText}
-                          addPost={props.addPost}/>
+            <textarea className={c.postWrite} onChange={ChangeInput} type="text"
+                      value={props.newPostText} rows="6"/>
         </div>
     );
 }

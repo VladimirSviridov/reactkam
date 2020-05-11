@@ -2,15 +2,17 @@ import React from "react";
 import DialogItem from "./Dialogs/DialogItem";
 import MessageItem from "./Dialogs/MessageItem";
 import c from "./Message.module.css"
-import MessageWrite from "./MessageWrite/MessageWrite";
+import MessageWriteContainer from "./MessageWrite/MessageWriteContainer";
+import ButtonMessageContainer from "../../../Items/MessageButton/ButtonMessageContainer";
 
 
 
 const Message = (props) => {
 
-    let Dialogs = props.state.UsersToDialog.map( users => <DialogItem img={users.img}  name = {users.name} id = {users.id}/> );
+    let state = props.store.getState();
 
-    let MessagesElements = props.state.MessagesData.map(el => <MessageItem text = {el.message}/>);
+    let Dialogs = state.messagesPage.UsersToDialog.map( users => <DialogItem img={users.img}  name = {users.name} id = {users.id}/> );
+    let MessagesElements = state.messagesPage.MessagesData.map(el => <MessageItem text = {el.message}/>);
 
     return (
         <div className={c.messages}>
@@ -19,9 +21,11 @@ const Message = (props) => {
             </div>
             <div className={c.message}>
                 {MessagesElements}
-                <MessageWrite NewMessage={props.state.NewMessage}
-                              addMessage={props.addMessage}
-                              updateNewMessage={props.updateNewMessage}/>
+                <div>
+                    <MessageWriteContainer store={props.store}/>
+                    <ButtonMessageContainer store={props.store}/>
+                </div>
+
             </div>
         </div>
     )

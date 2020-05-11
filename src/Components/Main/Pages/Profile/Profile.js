@@ -5,23 +5,31 @@ import UserInfo from "../../../Items/Profile/UserInfo";
 import PostWrite from "./Posts/PostWrite";
 import PostItem from "./Posts/PostItem";
 import c from "./Profile.module.css"
+import ButtonSimple from "../../../Items/ProfileButton/ButtonSimple";
+import PostWriteContainer from "./Posts/PostWriteContainer";
+import ButtonSimpleContainer from "../../../Items/ProfileButton/ButtonSimpleContainer";
 
 
 function Profile(props) {
 
-    let PostItemArray = props.state.PostsData.map ( post => <PostItem img={post.img} text= {post.message} likes={post.likesCount}/>);
+    let state = props.store.getState();
+
+    let PostItemArray = state.profilePage.PostsData.map(post => <PostItem img={post.img} text={post.message}
+                                                                    likes={post.likesCount}/>);
 
     return (
         <section>
             <HeadPhoto/>
             <div className={c.user}>
-                <UserPhoto img={props.state.PostsData[0].img}/>
+                <UserPhoto img={state.profilePage.PostsData[0].img}/>
                 <UserInfo/>
             </div>
             <section className="posts">
-                <PostWrite newPostText={props.state.NewPostText}
-                           updateNewPostText={props.updateNewPostText}
-                           addPost={props.addPost}/>
+                <div>
+                    <PostWriteContainer store={props.store}/>
+                    <ButtonSimpleContainer store={props.store}/>
+                </div>
+
                 {PostItemArray}
             </section>
         </section>

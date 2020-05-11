@@ -1,26 +1,24 @@
 import React from "react";
 import c from "./MessageWrite.module.css"
+import {addMessageActionCreator, updateNewMessageActionCreator} from "../../../../../Redux/messagesReducer";
 
 
 function MessageWrite(props) {
-    let ChangeInput = () =>{
-        let text = newMessage.current.value;
-        props.updateNewMessage(text);
+
+    let onChangeInput = (event) =>{
+        let text = event.target.value;
+        props.changeInput(text);
     };
 
-    let newMessage = React.createRef();
 
-    let addMessage = () => {
-        props.addMessage();
-    };
     return (
         <div>
-            <textarea onChange={ChangeInput} ref={newMessage} type="text" value={props.NewMessage}
+            <textarea onChange={onChangeInput} type="text" value={props.NewMessage}
                       className={c.messageWrite} name="" id="" rows="3"/>
             <div>
-                <button onClick={addMessage} className="btn-simple" type="button">
+                {/*<button onClick={onAddMessage} className="btn-simple" type="button">
                     Отправить
-                </button>
+                </button>*/}
             </div>
         </div>
     );

@@ -6,7 +6,9 @@ import FriendItem from "./Friends/FriendItem";
 
 function Nav(props) {
 
-    let FriendsArray = props.state.FriendsData.map (friend => <FriendItem img={friend.img} name={friend.name} id={friend.id}/>);
+    let state = props.store.getState();
+
+    let FriendsArray = state.sidebar.FriendsData.map (friend => <FriendItem img={friend.img} name={friend.name} id={friend.id}/>);
     return (
         <nav className={c.nav}>
             <div>
