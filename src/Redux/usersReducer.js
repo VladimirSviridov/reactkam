@@ -1,40 +1,46 @@
-const updateNewText = 'UPDATE-NEW-TEXT';
-const addPost = "ADD-POST";
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    PostsData: [
-        {
-            id: "1",
-            img: '/img/iconfinder-7-avatar-2754582_120519.png',
-            likesCount: "5",
-            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, nisi."
-        },
-        {
-            id: "2",
-            img: '/img/iconfinder-7-avatar-2754582_120519.png',
-            likesCount: "56",
-            message: "I learning JS React"
-        },
-        {
-            id: "3",
-            img: '/img/iconfinder-7-avatar-2754582_120519.png',
-            likesCount: "13",
-            message: "And I know how to use props"
-        }
-    ],
-    NewPostText: 'smth',
+    users:[],
 };
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case FOLLOW:
+           return {
+                ...state,
+                users: state.users.map(user => {
+                    if (user.id === action.userId){
+                        return {...user, followed: true}
+                    }
+                    return user;
+                }),
+            };
+        case UNFOLLOW:
+            return {
+                ...state,
+                users: state.users.map(user => {
+
+                    if (user.id === action.userId){
+                        return {...user, followed: false}
+                    }
+                    return user;
+                }),
+            };
+        case SET_USERS:
+            return {...state, users: [...state.users, ...action.users]};
         default:
             return state;
     }
 };
 
-export const updateNewTextActionCreator = (text) =>
-    ({type: updateNewText, newText: text});
-export const addPostActionCreator = () => ({type: addPost});
+
+export const followAC = (userId) =>({type: FOLLOW, userId});
+export const unFollowAC = (userId) =>({type: UNFOLLOW, userId});
+export const setUsers = (users) =>({type: SET_USERS, users});
+
 
 
 export default usersReducer;

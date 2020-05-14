@@ -6,7 +6,7 @@ function MyPosts(props) {
 
 let state = props.store.getState();
 
-let PostItemArray = state.profilePage.PostsData.map(post => <PostItem img={post.img} text={post.message}
+let PostItemArray = state.profilePage.PostsData.map(post => <PostItem key={post.id} img={post.img} text={post.message}
                                                                 likes={post.likesCount}/>);
 return (
     <div>

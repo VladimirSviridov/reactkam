@@ -17,6 +17,9 @@ function Nav(props) {
                     <NavLink className={c.navLink} activeClassName = {c.active} to="/dialog">Message</NavLink>
                 </div>
                 <div>
+                    <NavLink className={c.navLink} activeClassName = {c.active} to="/users">Users</NavLink>
+                </div>
+                <div>
                     <NavLink className={c.navLink} activeClassName = {c.active} to="/music">Music</NavLink>
                 </div>
                 <div>
