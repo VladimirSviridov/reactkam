@@ -1,5 +1,6 @@
-const updateNewText = 'UPDATE-NEW-TEXT';
-const addPost = "ADD-POST";
+const UPDATE_NEW_TEXT = 'UPDATE_NEW_TEXT';
+const ADD_POST = "ADD_POST";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialState = {
     PostsData: [
@@ -23,11 +24,16 @@ let initialState = {
         }
     ],
     NewPostText: 'smth',
+    profile: null /*{
+        photos: {
+            small:'../img/defaultUserPhoto.png'
+        }
+    }*/
 };
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case addPost:
+        case ADD_POST:
             let newPost = {
                 id: state.PostsData.length + 2,
                 img: '/img/iconfinder-7-avatar-2754582_120519.png',
@@ -39,19 +45,22 @@ const profileReducer = (state = initialState, action) => {
                 NewPostText: '',
                 PostsData: [...state.PostsData, newPost],
             };
-        case updateNewText:
+        case UPDATE_NEW_TEXT:
             return {
                 ...state,
                 NewPostText: action.newText,
             };
+        case SET_USER_PROFILE:
+            return {...state, profile: action.profile};
         default:
             return state;
     }
 };
 
-export const updateNewTextActionCreator = (text) =>
-    ({type: updateNewText, newText: text});
-export const addPostActionCreator = () => ({type: addPost});
+export const updateNewText = (text) =>
+    ({type: UPDATE_NEW_TEXT, newText: text});
+export const addPost = () => ({type: ADD_POST});
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
 
 export default profileReducer;

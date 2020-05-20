@@ -1,9 +1,7 @@
 import React from "react";
-import {updateNewTextActionCreator} from "../../../../../Redux/profileReducer";
+import {updateNewText} from "../../../../../Redux/profileReducer";
 import PostWrite from "./PostWrite";
 import {connect} from "react-redux";
-
-
 
 let mapStoreToProps = (state) => {
     return {
@@ -11,13 +9,6 @@ let mapStoreToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        updatePostText: (text) => {dispatch(updateNewTextActionCreator(text));}
-    }
-};
-
-const PostWriteContainer = connect(mapStoreToProps, mapDispatchToProps)(PostWrite);
-
+const PostWriteContainer = connect(mapStoreToProps, {updateNewText})(PostWrite);
 
 export default PostWriteContainer;

@@ -3,6 +3,7 @@
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     background: #ffb593;
 }
@@ -11,6 +12,22 @@
     margin-left: 1rem;
     height: 4rem;
     border-radius: 50%;
+}
+
+.loginBlock {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem;
+    margin-right: 1rem;
+    outline: 1px solid black;
+    background: #c6ffe7;
+
+    transition: all 0.2s linear;
+}
+
+.loginBlock:hover {
+    box-shadow: 0 0 20px #c6ffe7;
+    outline: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -1,5 +1,5 @@
-const addMessage = "ADD-MESSAGE";
-const updateNewMessage = 'UPDATE-NEW-MESSAGE';
+const ADD_MESSAGE = "ADD_MESSAGE";
+const UPDATE_NEW_MESSAGE = 'UPDATE_NEW_MESSAGE';
 
 let initialState = {
     UsersToDialog: [
@@ -20,13 +20,13 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case addMessage:
+        case ADD_MESSAGE:
             return  {
                 ...state,
                 NewMessage: '',
                 MessagesData: [...state.MessagesData, {id: state.MessagesData.length + 2, message: state.NewMessage,}],
             };
-        case updateNewMessage:
+        case UPDATE_NEW_MESSAGE:
             return {
                 ...state,
                 NewMessage: action.newText,
@@ -36,9 +36,9 @@ const messagesReducer = (state = initialState, action) => {
     }
 };
 
-export const updateNewMessageActionCreator = (text) =>
-    ({type: updateNewMessage, newText: text});
-export const addMessageActionCreator = () => ({type: addMessage});
+export const updateNewMessage = (text) =>
+    ({type: UPDATE_NEW_MESSAGE, newText: text});
+export const addMessage = () => ({type: ADD_MESSAGE});
 
 
 export default messagesReducer;

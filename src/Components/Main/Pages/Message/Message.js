@@ -1,6 +1,4 @@
 import React from "react";
-import DialogItem from "./Dialogs/DialogItem";
-import MessageItem from "./Dialogs/MessageItem";
 import c from "./Message.module.css"
 import MessageWriteContainer from "./MessageWrite/MessageWriteContainer";
 import ButtonMessageContainer from "../../../Items/MessageButton/ButtonMessageContainer";
@@ -10,7 +8,6 @@ import MyDialogs from "./Dialogs/MyDialogs/MyDialogs";
 
 
 const Message = (props) => {
-
 
     return (
         <div className={c.messages}>

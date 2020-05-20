@@ -1,0 +1,10 @@
+.preloader{
+    position: relative;
+    margin-left: 50%;
+}
+
+.preloaderImg{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+}

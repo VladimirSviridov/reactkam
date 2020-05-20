@@ -1,10 +1,9 @@
 import React from "react";
 import c from "./ButtonSimple.module.css"
 
-
 function ButtonSimple(props) {
 
-    let addPost = () => props.AddPost();
+    let addPost = () => props.addPost();
 
         return (
         <div>

@@ -6,7 +6,7 @@ function PostWrite(props) {
 
     let ChangeInput = (event) => {
         let text = event.target.value;
-        props.updatePostText(text);
+        props.updateNewText(text);
     };
 
     return (

@@ -7,13 +7,13 @@ import Settings from './Pages/Settings/Settings';
 import c from "./Main.module.css";
 import {Route} from "react-router-dom";
 import UsersContainer from "../Users/UsersContainer";
+import ProfileContainer from "./Pages/Profile/ProfileContainer";
 
 
 function Main(props) {
-
     return (
         <main className={c.main}>
-            <Route path={'/profile'} render={() => <Profile store={props.store}/>}/>
+            <Route path={'/profile/:userId?'} render={() => <ProfileContainer />}/>
             <Route path={'/dialog'} render={() => <Message store={props.store}/>}/>
             <Route path={'/users'} render={() => <UsersContainer/>}/>
             <Route component={Music} path={'/music'}/>

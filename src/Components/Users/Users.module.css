@@ -1,3 +1,37 @@
 .usersPhoto{
     width: 100px;
 }
+.usersPage{
+    padding: 0 5px;
+    margin: 5px 5px;
+    outline: 1px solid burlywood;
+    font-size: 20px;
+    cursor: pointer;
+}
+.selectedPage{
+    padding: 0 5px;
+    margin: 5px 5px;
+    outline: 1px solid burlywood;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.usersCols {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 10px;
+}
+.userFull{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.usersPagination{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
