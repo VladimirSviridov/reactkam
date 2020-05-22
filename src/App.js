@@ -10,7 +10,7 @@ function App(props) {
         <div className="app-wrapper">
             <HeaderContainer/>
             <Nav store={props.store}/>
-            <Main store={props.store}/>
+            <Main />
         </div>
     );
 }

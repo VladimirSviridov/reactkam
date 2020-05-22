@@ -4,6 +4,7 @@ import UserPhoto from "../../Items/Profile/UserPhoto";
 import UserInfo from "../../Items/Profile/UserInfo";
 import c from "../../Main/Pages/Profile/Profile.module.css"
 import Preloader from "../Preloader/Preloader";
+import UserStatus from "./UserStatus/UserStatus";
 
 
 function UserBlock(props) {
@@ -16,6 +17,7 @@ function UserBlock(props) {
                 <div className={c.user}>
                     <UserPhoto img={props.profile.photos.small}/>
                     <UserInfo profile={props}/>
+                    <UserStatus status={'Всем привет'}/>
                 </div>
             </div>
         );

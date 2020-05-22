@@ -4,21 +4,23 @@ import MessageWriteContainer from "./MessageWrite/MessageWriteContainer";
 import ButtonMessageContainer from "../../../Items/MessageButton/ButtonMessageContainer";
 import MyMessages from "./MessageWrite/MyMessages/MyMessages";
 import MyDialogs from "./Dialogs/MyDialogs/MyDialogs";
+import {Redirect} from "react-router-dom";
 
 
 
 const Message = (props) => {
 
+
     return (
         <div className={c.messages}>
             <div className={c.dialogs}>
-                <MyDialogs store={props.store}/>
+                <MyDialogs UsersToDialog={props.MessagesPage.UsersToDialog}/>
             </div>
             <div className={c.message}>
-                <MyMessages store={props.store} />
+                <MyMessages MessagesData={props.MessagesPage.MessagesData} />
                 <div>
-                    <MessageWriteContainer store={props.store}/>
-                    <ButtonMessageContainer store={props.store}/>
+                    <MessageWriteContainer />
+                    <ButtonMessageContainer />
                 </div>
 
             </div>

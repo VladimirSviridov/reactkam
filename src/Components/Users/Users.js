@@ -2,14 +2,10 @@ import React from "react";
 import c from "./Users.module.css";
 import defaultUserPhoto from "../../img/defaultUserPhoto.png";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../API/api";
-
 
 
 let Users = (props) => {
-
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize / 150);
-
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
@@ -20,7 +16,7 @@ let Users = (props) => {
             <div className={c.usersPagination}>
                 {pages.map(p => {
                     return <span className={props.currentPage === p ? c.selectedPage : c.usersPage}
-                                 onClick={(e) => {
+                                 onClick={() => {
                                      props.onPageChanged(p)
                                  }}>{p}</span>
                 })}
@@ -32,7 +28,8 @@ let Users = (props) => {
                             <NavLink to={'/profile/' + user.id}>
                                 <img className={c.usersPhoto} src={user.photos.small != null
                                     ? user.photos.small
-                                    : defaultUserPhoto}/>
+                                    : defaultUserPhoto
+                                }/>
                             </NavLink>
                             <div>
                                 <div>
@@ -44,20 +41,16 @@ let Users = (props) => {
                             </div>
                             <div>
                                 {user.followed
-                                    ? <button onClick={() => {
-                                        usersAPI.unFollow(user.id).then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.unFollow(user.id);
-                                            }
-                                        });
-                                    }}>Unfollow</button>
-                                    : <button onClick={() => {
-                                        usersAPI.follow(user.id).then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.follow(user.id);
-                                            }
-                                        });
-                                    }}>Follow</button>}
+                                    ? <button disabled={props.followingInProgress.some(id => id === user.id)}
+                                              onClick={() => {
+                                                  props.unFollow(user.id);
+                                                  debugger
+                                              }}>Unfollow</button>
+                                    : <button disabled={props.followingInProgress.some(id => id === user.id)}
+                                              onClick={() => {
+                                                  props.follow(user.id);
+                                                  debugger
+                                              }}>Follow</button>}
                             </div>
                         </div>
                     </div>
