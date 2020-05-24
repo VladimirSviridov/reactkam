@@ -1,6 +1,4 @@
 import React from "react";
-import Profile from "./Pages/Profile/Profile";
-import Message from './Pages/Message/Message';
 import Music from './Pages/Music/Music';
 import News from './Pages/News/News';
 import Settings from './Pages/Settings/Settings';

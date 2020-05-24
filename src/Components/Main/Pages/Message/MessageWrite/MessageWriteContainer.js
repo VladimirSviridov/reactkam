@@ -1,17 +1,15 @@
 import React from "react";
-import {addMessage, updateNewMessage} from "../../../../../Redux/messagesReducer";
+import {addMessage} from "../../../../../Redux/messagesReducer";
 import MessageWrite from "./MessageWrite";
 import {connect} from "react-redux";
 
 
-let mapStoreToProps = (state) => {
-    return {
-        NewMessage: state.messagesPage.NewMessage
-    }
+let mapStoreToProps = () => {
+    return {}
 };
 
 
-const MessageWriteContainer = connect(mapStoreToProps, {addMessage, updateNewMessage})(MessageWrite);
+const MessageWriteContainer = connect(mapStoreToProps, {addMessage})(MessageWrite);
 
 
 export default MessageWriteContainer;

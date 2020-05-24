@@ -28,6 +28,7 @@
 .loginBlock:hover {
     box-shadow: 0 0 20px #c6ffe7;
     outline: none;
+    cursor: pointer;
 }
 
 @media (prefers-reduced-motion: no-preference) {

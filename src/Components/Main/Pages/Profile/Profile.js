@@ -5,7 +5,9 @@ import UserBlock from "../../../Items/Profile/UserBlock";
 function Profile(props) {
     return (
         <section>
-            <UserBlock profile={props.profile}/>
+            <UserBlock profile={props.profile}
+                       status={props.status}
+                       updateUserStatus={props.updateUserStatus}/>
             <PostsBlock />
         </section>
     );

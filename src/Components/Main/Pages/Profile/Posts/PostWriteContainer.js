@@ -1,14 +1,12 @@
 import React from "react";
-import {updateNewText} from "../../../../../Redux/profileReducer";
+import {addPost} from "../../../../../Redux/profileReducer";
 import PostWrite from "./PostWrite";
 import {connect} from "react-redux";
 
-let mapStoreToProps = (state) => {
-    return {
-        newPostText: state.profilePage.NewPostText
-    }
+let mapStoreToProps = () => {
+    return {}
 };
 
-const PostWriteContainer = connect(mapStoreToProps, {updateNewText})(PostWrite);
+const PostWriteContainer = connect(mapStoreToProps, {addPost})(PostWrite);
 
 export default PostWriteContainer;

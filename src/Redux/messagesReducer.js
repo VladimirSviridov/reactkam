@@ -1,5 +1,4 @@
 const ADD_MESSAGE = "ADD_MESSAGE";
-const UPDATE_NEW_MESSAGE = 'UPDATE_NEW_MESSAGE';
 
 let initialState = {
     UsersToDialog: [
@@ -15,7 +14,6 @@ let initialState = {
         {id: "3", message: "How do you feel it?"},
         {id: "4", message: "Do you have smth to say?"}
     ],
-    NewMessage: 'smth',
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -23,22 +21,14 @@ const messagesReducer = (state = initialState, action) => {
         case ADD_MESSAGE:
             return  {
                 ...state,
-                NewMessage: '',
-                MessagesData: [...state.MessagesData, {id: state.MessagesData.length + 2, message: state.NewMessage,}],
-            };
-        case UPDATE_NEW_MESSAGE:
-            return {
-                ...state,
-                NewMessage: action.newText,
+                MessagesData: [...state.MessagesData, {id: state.MessagesData.length + 2, message: action.newMessageBody,}],
             };
         default:
             return state;
     }
 };
 
-export const updateNewMessage = (text) =>
-    ({type: UPDATE_NEW_MESSAGE, newText: text});
-export const addMessage = () => ({type: ADD_MESSAGE});
+export const addMessage = (newMessageBody) => ({type: ADD_MESSAGE, newMessageBody});
 
 
 export default messagesReducer;

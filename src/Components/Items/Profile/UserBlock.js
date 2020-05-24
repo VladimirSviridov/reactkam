@@ -4,20 +4,20 @@ import UserPhoto from "../../Items/Profile/UserPhoto";
 import UserInfo from "../../Items/Profile/UserInfo";
 import c from "../../Main/Pages/Profile/Profile.module.css"
 import Preloader from "../Preloader/Preloader";
-import UserStatus from "./UserStatus/UserStatus";
 
 
 function UserBlock(props) {
-    if(!props.profile){
+    if (!props.profile) {
         return <Preloader/>
-    }else {
+    } else {
         return (
             <div>
                 <HeadPhoto/>
                 <div className={c.user}>
                     <UserPhoto img={props.profile.photos.small}/>
-                    <UserInfo profile={props}/>
-                    <UserStatus status={'Всем привет'}/>
+                    <UserInfo profile={props}
+                              status={props.status}
+                              updateUserStatus={props.updateUserStatus}/>
                 </div>
             </div>
         );
