@@ -1,6 +1,7 @@
 import React from "react";
 import UserInfoPart from "./UserInfoPart";
 import UserStatus from "./UserStatus/UserStatus";
+import UserStatusWithHooks from "./UserStatus/UserStatusWithHooks";
 
 
 function UserInfo(props) {
@@ -10,7 +11,7 @@ function UserInfo(props) {
             <UserInfoPart name = 'Age' info='25'/>
             <UserInfoPart name = 'Interests' info='HTML5, CSS3, ES5,6, JS, REACT'/>
             <UserInfoPart name = 'Skills' info='low'/>
-            <UserStatus status={props.status}
+            <UserStatusWithHooks status={props.status}
                         updateUserStatus={props.updateUserStatus}/>
         </div>
     );

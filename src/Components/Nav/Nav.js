@@ -3,12 +3,14 @@ import c from './Nav.module.css';
 import {NavLink} from "react-router-dom";
 import FriendItem from "./Friends/FriendItem";
 import MyFriends from "./Friends/MyFriends/MyFriends";
+import MyFriendsContainer from "./Friends/MyFriends/MyFriendsContainer";
 
 
-function Nav(props) {
+function Nav() {
 
     return (
         <nav className={c.nav}>
+
             <div>
                 <div>
                     <NavLink className={c.navLink} activeClassName = {c.active} to="/profile">Profile</NavLink>
@@ -28,10 +30,11 @@ function Nav(props) {
                 <div>
                     <NavLink className={c.navLink} activeClassName = {c.active} to="/settings">Settings</NavLink>
                 </div>
-            </div> <br/><br/>
+            </div>
+            <br/><br/>
             <div>
                 FRIENDS
-                <MyFriends store={props.store}/>
+                <MyFriendsContainer />
             </div>
 
         </nav>

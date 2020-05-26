@@ -5,12 +5,12 @@ import {NavLink} from "react-router-dom";
 
 
 let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize / 150);
+    debugger
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize / 50);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-
     return (
         <div>
             <div className={c.usersPagination}>
@@ -44,12 +44,10 @@ let Users = (props) => {
                                     ? <button disabled={props.followingInProgress.some(id => id === user.id)}
                                               onClick={() => {
                                                   props.unFollow(user.id);
-                                                  debugger
                                               }}>Unfollow</button>
                                     : <button disabled={props.followingInProgress.some(id => id === user.id)}
                                               onClick={() => {
                                                   props.follow(user.id);
-                                                  debugger
                                               }}>Follow</button>}
                             </div>
                         </div>

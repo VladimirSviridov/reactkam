@@ -5,10 +5,7 @@ import MyMessages from "./MessageWrite/MyMessages/MyMessages";
 import MyDialogs from "./Dialogs/MyDialogs/MyDialogs";
 
 
-
 const Message = (props) => {
-
-
     return (
         <div className={c.messages}>
             <div className={c.dialogs}>
@@ -19,7 +16,6 @@ const Message = (props) => {
                 <div>
                     <MessageWriteContainer />
                 </div>
-
             </div>
         </div>
     )
