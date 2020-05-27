@@ -3,19 +3,15 @@ import React from "react";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
-class MyPostsContainer extends React.Component{
-
-    render(){
-        return (
-            <section>
-                <MyPosts {...this.props} />
-            </section>
-        );
-    }
-}
+const MyPostsContainer = React.memo(props => {
+    console.log('render');
+        return <section>
+            <MyPosts PostsData={props.PostsData} />
+        </section>
+});
 
 let mapStateToProps = (state) => ({
-    state
+    PostsData: state.profilePage.PostsData
 });
 
 export default connect(mapStateToProps)(MyPostsContainer);

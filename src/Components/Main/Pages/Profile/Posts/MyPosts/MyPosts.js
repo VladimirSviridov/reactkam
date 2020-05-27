@@ -4,13 +4,15 @@ import PostItem from "../PostItem";
 
 function MyPosts(props) {
 
-let PostItemArray = props.state.profilePage.PostsData.map(post => <PostItem key={post.id} img={post.img} text={post.message}
-                                                                likes={post.likesCount}/>);
-return (
-    <div>
+    let PostItemArray = props.PostsData.map(post => <PostItem key={post.id}
+                                                                                img={post.img}
+                                                                                text={post.message}
+                                                                                likes={post.likesCount}/>);
+    return (
+        <div>
             {PostItemArray}
-    </div>
-);
+        </div>
+    );
 }
 
 export default MyPosts;
